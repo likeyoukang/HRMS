@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.softeem.hrms.dao.CandidateMapper">
+  <resultMap id="BaseResultMap" type="com.softeem.hrms.entity.Candidate">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="mssj" jdbcType="TIMESTAMP" property="mssj" />
+    <result column="msbm" jdbcType="VARCHAR" property="msbm" />
+    <result column="msgw" jdbcType="VARCHAR" property="msgw" />
+    <result column="xl" jdbcType="VARCHAR" property="xl" />
+    <result column="zy" jdbcType="VARCHAR" property="zy" />
+    <result column="lxfs" jdbcType="VARCHAR" property="lxfs" />
+    <result column="dzyx" jdbcType="VARCHAR" property="dzyx" />
+    <result column="cssj" jdbcType="TIMESTAMP" property="cssj" />
+    <result column="csjg" jdbcType="VARCHAR" property="csjg" />
+    <result column="fssj" jdbcType="TIMESTAMP" property="fssj" />
+    <result column="fsjg" jdbcType="VARCHAR" property="fsjg" />
+    <result column="sfly" jdbcType="INTEGER" property="sfly" />
+    <result column="nlysj" jdbcType="DATE" property="nlysj" />
+    <result column="sfdg" jdbcType="INTEGER" property="sfdg" />
+    <result column="dgsj" jdbcType="DATE" property="dgsj" />
+    <result column="fj" jdbcType="VARCHAR" property="fj" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, xm, mssj, msbm, msgw, xl, zy, lxfs, dzyx, cssj, csjg, fssj, fsjg, sfly, nlysj, 
+    sfdg, dgsj, fj
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from candidate
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from candidate
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.softeem.hrms.entity.Candidate">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into candidate (xm, mssj, msbm, 
+      msgw, xl, zy, lxfs, 
+      dzyx, cssj, csjg, 
+      fssj, fsjg, sfly, 
+      nlysj, sfdg, dgsj, fj
+      )
+    values (#{xm,jdbcType=VARCHAR}, #{mssj,jdbcType=TIMESTAMP}, #{msbm,jdbcType=VARCHAR}, 
+      #{msgw,jdbcType=VARCHAR}, #{xl,jdbcType=VARCHAR}, #{zy,jdbcType=VARCHAR}, #{lxfs,jdbcType=VARCHAR}, 
+      #{dzyx,jdbcType=VARCHAR}, #{cssj,jdbcType=TIMESTAMP}, #{csjg,jdbcType=VARCHAR}, 
+      #{fssj,jdbcType=TIMESTAMP}, #{fsjg,jdbcType=VARCHAR}, #{sfly,jdbcType=INTEGER}, 
+      #{nlysj,jdbcType=DATE}, #{sfdg,jdbcType=INTEGER}, #{dgsj,jdbcType=DATE}, #{fj,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.softeem.hrms.entity.Candidate">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into candidate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xm != null">
+        xm,
+      </if>
+      <if test="mssj != null">
+        mssj,
+      </if>
+      <if test="msbm != null">
+        msbm,
+      </if>
+      <if test="msgw != null">
+        msgw,
+      </if>
+      <if test="xl != null">
+        xl,
+      </if>
+      <if test="zy != null">
+        zy,
+      </if>
+      <if test="lxfs != null">
+        lxfs,
+      </if>
+      <if test="dzyx != null">
+        dzyx,
+      </if>
+      <if test="cssj != null">
+        cssj,
+      </if>
+      <if test="csjg != null">
+        csjg,
+      </if>
+      <if test="fssj != null">
+        fssj,
+      </if>
+      <if test="fsjg != null">
+        fsjg,
+      </if>
+      <if test="sfly != null">
+        sfly,
+      </if>
+      <if test="nlysj != null">
+        nlysj,
+      </if>
+      <if test="sfdg != null">
+        sfdg,
+      </if>
+      <if test="dgsj != null">
+        dgsj,
+      </if>
+      <if test="fj != null">
+        fj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="mssj != null">
+        #{mssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msbm != null">
+        #{msbm,jdbcType=VARCHAR},
+      </if>
+      <if test="msgw != null">
+        #{msgw,jdbcType=VARCHAR},
+      </if>
+      <if test="xl != null">
+        #{xl,jdbcType=VARCHAR},
+      </if>
+      <if test="zy != null">
+        #{zy,jdbcType=VARCHAR},
+      </if>
+      <if test="lxfs != null">
+        #{lxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="dzyx != null">
+        #{dzyx,jdbcType=VARCHAR},
+      </if>
+      <if test="cssj != null">
+        #{cssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="csjg != null">
+        #{csjg,jdbcType=VARCHAR},
+      </if>
+      <if test="fssj != null">
+        #{fssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fsjg != null">
+        #{fsjg,jdbcType=VARCHAR},
+      </if>
+      <if test="sfly != null">
+        #{sfly,jdbcType=INTEGER},
+      </if>
+      <if test="nlysj != null">
+        #{nlysj,jdbcType=DATE},
+      </if>
+      <if test="sfdg != null">
+        #{sfdg,jdbcType=INTEGER},
+      </if>
+      <if test="dgsj != null">
+        #{dgsj,jdbcType=DATE},
+      </if>
+      <if test="fj != null">
+        #{fj,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.softeem.hrms.entity.Candidate">
+    update candidate
+    <set>
+      <if test="xm != null">
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="mssj != null">
+        mssj = #{mssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msbm != null">
+        msbm = #{msbm,jdbcType=VARCHAR},
+      </if>
+      <if test="msgw != null">
+        msgw = #{msgw,jdbcType=VARCHAR},
+      </if>
+      <if test="xl != null">
+        xl = #{xl,jdbcType=VARCHAR},
+      </if>
+      <if test="zy != null">
+        zy = #{zy,jdbcType=VARCHAR},
+      </if>
+      <if test="lxfs != null">
+        lxfs = #{lxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="dzyx != null">
+        dzyx = #{dzyx,jdbcType=VARCHAR},
+      </if>
+      <if test="cssj != null">
+        cssj = #{cssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="csjg != null">
+        csjg = #{csjg,jdbcType=VARCHAR},
+      </if>
+      <if test="fssj != null">
+        fssj = #{fssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fsjg != null">
+        fsjg = #{fsjg,jdbcType=VARCHAR},
+      </if>
+      <if test="sfly != null">
+        sfly = #{sfly,jdbcType=INTEGER},
+      </if>
+      <if test="nlysj != null">
+        nlysj = #{nlysj,jdbcType=DATE},
+      </if>
+      <if test="sfdg != null">
+        sfdg = #{sfdg,jdbcType=INTEGER},
+      </if>
+      <if test="dgsj != null">
+        dgsj = #{dgsj,jdbcType=DATE},
+      </if>
+      <if test="fj != null">
+        fj = #{fj,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.softeem.hrms.entity.Candidate">
+    update candidate
+    set xm = #{xm,jdbcType=VARCHAR},
+      mssj = #{mssj,jdbcType=TIMESTAMP},
+      msbm = #{msbm,jdbcType=VARCHAR},
+      msgw = #{msgw,jdbcType=VARCHAR},
+      xl = #{xl,jdbcType=VARCHAR},
+      zy = #{zy,jdbcType=VARCHAR},
+      lxfs = #{lxfs,jdbcType=VARCHAR},
+      dzyx = #{dzyx,jdbcType=VARCHAR},
+      cssj = #{cssj,jdbcType=TIMESTAMP},
+      csjg = #{csjg,jdbcType=VARCHAR},
+      fssj = #{fssj,jdbcType=TIMESTAMP},
+      fsjg = #{fsjg,jdbcType=VARCHAR},
+      sfly = #{sfly,jdbcType=INTEGER},
+      nlysj = #{nlysj,jdbcType=DATE},
+      sfdg = #{sfdg,jdbcType=INTEGER},
+      dgsj = #{dgsj,jdbcType=DATE},
+      fj = #{fj,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+      <select id="selectAll" resultMap="BaseResultMap">
+  		select
+  		<include refid="Base_Column_List"/>
+  		from candidate
+  </select>
+</mapper>

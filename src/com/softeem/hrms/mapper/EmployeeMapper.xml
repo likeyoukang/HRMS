@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.softeem.hrms.dao.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.softeem.hrms.entity.Employee">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="gh" jdbcType="VARCHAR" property="gh" />
+    <result column="xb" jdbcType="VARCHAR" property="xb" />
+    <result column="ygxs" jdbcType="VARCHAR" property="ygxs" />
+    <result column="lb" jdbcType="VARCHAR" property="lb" />
+    <result column="bm" jdbcType="VARCHAR" property="bm" />
+    <result column="jys" jdbcType="VARCHAR" property="jys" />
+    <result column="gwzw" jdbcType="VARCHAR" property="gwzw" />
+    <result column="xzjb" jdbcType="VARCHAR" property="xzjb" />
+    <result column="rzrq" jdbcType="DATE" property="rzrq" />
+    <result column="sl" jdbcType="INTEGER" property="sl" />
+    <result column="syq" jdbcType="INTEGER" property="syq" />
+    <result column="syqtx" jdbcType="INTEGER" property="syqtx" />
+    <result column="sfzz" jdbcType="INTEGER" property="sfzz" />
+    <result column="zzrq" jdbcType="DATE" property="zzrq" />
+    <result column="sfzh" jdbcType="VARCHAR" property="sfzh" />
+    <result column="ksrq" jdbcType="DATE" property="ksrq" />
+    <result column="jsrq" jdbcType="DATE" property="jsrq" />
+    <result column="sfzssjg" jdbcType="VARCHAR" property="sfzssjg" />
+    <result column="csrq" jdbcType="VARCHAR" property="csrq" />
+    <result column="nl" jdbcType="INTEGER" property="nl" />
+    <result column="jg" jdbcType="VARCHAR" property="jg" />
+    <result column="mz" jdbcType="VARCHAR" property="mz" />
+    <result column="hyzk" jdbcType="INTEGER" property="hyzk" />
+    <result column="zzmm" jdbcType="VARCHAR" property="zzmm" />
+    <result column="zclb" jdbcType="VARCHAR" property="zclb" />
+    <result column="zc" jdbcType="VARCHAR" property="zc" />
+    <result column="zcjb" jdbcType="VARCHAR" property="zcjb" />
+    <result column="zczymc" jdbcType="VARCHAR" property="zczymc" />
+    <result column="zcbh" jdbcType="VARCHAR" property="zcbh" />
+    <result column="zcpzsj" jdbcType="DATE" property="zcpzsj" />
+    <result column="zcpysj" jdbcType="DATE" property="zcpysj" />
+    <result column="zcpzdw" jdbcType="VARCHAR" property="zcpzdw" />
+    <result column="zszl" jdbcType="VARCHAR" property="zszl" />
+    <result column="zshm" jdbcType="VARCHAR" property="zshm" />
+    <result column="rjxk" jdbcType="VARCHAR" property="rjxk" />
+    <result column="zsbfrq" jdbcType="DATE" property="zsbfrq" />
+    <result column="zsbfjg" jdbcType="VARCHAR" property="zsbfjg" />
+    <result column="qtzs1" jdbcType="VARCHAR" property="qtzs1" />
+    <result column="qtzs2" jdbcType="VARCHAR" property="qtzs2" />
+    <result column="qtzs3" jdbcType="VARCHAR" property="qtzs3" />
+    <result column="qtzs4" jdbcType="VARCHAR" property="qtzs4" />
+    <result column="zg_byxx" jdbcType="VARCHAR" property="zg_byxx" />
+    <result column="zg_bysj" jdbcType="DATE" property="zg_bysj" />
+    <result column="zg_zy" jdbcType="VARCHAR" property="zg_zy" />
+    <result column="zg_xl" jdbcType="VARCHAR" property="zg_xl" />
+    <result column="zg_xw" jdbcType="VARCHAR" property="zg_xw" />
+    <result column="zg_xwlb" jdbcType="VARCHAR" property="zg_xwlb" />
+    <result column="zg_byzbh" jdbcType="VARCHAR" property="zg_byzbh" />
+    <result column="zg_xwzbh" jdbcType="VARCHAR" property="zg_xwzbh" />
+    <result column="jc_byxx" jdbcType="VARCHAR" property="jc_byxx" />
+    <result column="jc_bysj" jdbcType="DATE" property="jc_bysj" />
+    <result column="jc_zy" jdbcType="VARCHAR" property="jc_zy" />
+    <result column="jc_xl" jdbcType="VARCHAR" property="jc_xl" />
+    <result column="jc_xw" jdbcType="VARCHAR" property="jc_xw" />
+    <result column="jc_xwlb" jdbcType="VARCHAR" property="jc_xwlb" />
+    <result column="jc_byzbh" jdbcType="VARCHAR" property="jc_byzbh" />
+    <result column="jc_xwzbh" jdbcType="VARCHAR" property="jc_xwzbh" />
+    <result column="cjgzsj" jdbcType="DATE" property="cjgzsj" />
+    <result column="sjgzdw" jdbcType="VARCHAR" property="sjgzdw" />
+    <result column="brjzdz" jdbcType="VARCHAR" property="brjzdz" />
+    <result column="brsj" jdbcType="VARCHAR" property="brsj" />
+    <result column="jjlxr" jdbcType="VARCHAR" property="jjlxr" />
+    <result column="jjlxrlxfs" jdbcType="VARCHAR" property="jjlxrlxfs" />
+    <result column="hkdz" jdbcType="VARCHAR" property="hkdz" />
+    <result column="sbbl" jdbcType="VARCHAR" property="sbbl" />
+    <result column="gjj" jdbcType="VARCHAR" property="gjj" />
+    <result column="htlx" jdbcType="VARCHAR" property="htlx" />
+    <result column="htqdcs" jdbcType="INTEGER" property="htqdcs" />
+    <result column="htkssj" jdbcType="TIMESTAMP" property="htkssj" />
+    <result column="htjssj" jdbcType="TIMESTAMP" property="htjssj" />
+    <result column="htksrq1" jdbcType="DATE" property="htksrq1" />
+    <result column="htjsrq1" jdbcType="DATE" property="htjsrq1" />
+    <result column="htksrq2" jdbcType="DATE" property="htksrq2" />
+    <result column="htjsrq2" jdbcType="DATE" property="htjsrq2" />
+    <result column="htksrq3" jdbcType="DATE" property="htksrq3" />
+    <result column="htjsrq3" jdbcType="DATE" property="htjsrq3" />
+    <result column="htksrq4" jdbcType="DATE" property="htksrq4" />
+    <result column="htjsrq4" jdbcType="DATE" property="htjsrq4" />
+    <result column="htksrq5" jdbcType="DATE" property="htksrq5" />
+    <result column="htjsrq5" jdbcType="DATE" property="htjsrq5" />
+    <result column="htksrq6" jdbcType="DATE" property="htksrq6" />
+    <result column="htjsrq6" jdbcType="DATE" property="htjsrq6" />
+    <result column="htksrq7" jdbcType="DATE" property="htksrq7" />
+    <result column="htjsrq7" jdbcType="DATE" property="htjsrq7" />
+    <result column="htksrq8" jdbcType="DATE" property="htksrq8" />
+    <result column="htjsrq8" jdbcType="DATE" property="htjsrq8" />
+    <result column="htksrq9" jdbcType="DATE" property="htksrq9" />
+    <result column="htjsrq9" jdbcType="DATE" property="htjsrq9" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, xm, gh, xb, ygxs, lb, bm, jys, gwzw, xzjb, rzrq, sl, syq, syqtx, sfzz, zzrq, 
+    sfzh, ksrq, jsrq, sfzssjg, csrq, nl, jg, mz, hyzk, zzmm, zclb, zc, zcjb, zczymc, 
+    zcbh, zcpzsj, zcpysj, zcpzdw, zszl, zshm, rjxk, zsbfrq, zsbfjg, qtzs1, qtzs2, qtzs3, 
+    qtzs4, zg_byxx, zg_bysj, zg_zy, zg_xl, zg_xw, zg_xwlb, zg_byzbh, zg_xwzbh, jc_byxx, 
+    jc_bysj, jc_zy, jc_xl, jc_xw, jc_xwlb, jc_byzbh, jc_xwzbh, cjgzsj, sjgzdw, brjzdz, 
+    brsj, jjlxr, jjlxrlxfs, hkdz, sbbl, gjj, htlx, htqdcs, htkssj, htjssj, htksrq1, htjsrq1, 
+    htksrq2, htjsrq2, htksrq3, htjsrq3, htksrq4, htjsrq4, htksrq5, htjsrq5, htksrq6, 
+    htjsrq6, htksrq7, htjsrq7, htksrq8, htjsrq8, htksrq9, htjsrq9
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.softeem.hrms.entity.Employee">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into employee (xm, gh, xb, ygxs, 
+      lb, bm, jys, gwzw, 
+      xzjb, rzrq, sl, syq, 
+      syqtx, sfzz, zzrq, sfzh, 
+      ksrq, jsrq, sfzssjg, csrq, 
+      nl, jg, mz, hyzk, 
+      zzmm, zclb, zc, zcjb, 
+      zczymc, zcbh, zcpzsj, 
+      zcpysj, zcpzdw, zszl, 
+      zshm, rjxk, zsbfrq, zsbfjg, 
+      qtzs1, qtzs2, qtzs3, 
+      qtzs4, zg_byxx, zg_bysj, 
+      zg_zy, zg_xl, zg_xw, 
+      zg_xwlb, zg_byzbh, zg_xwzbh, 
+      jc_byxx, jc_bysj, jc_zy, 
+      jc_xl, jc_xw, jc_xwlb, 
+      jc_byzbh, jc_xwzbh, cjgzsj, 
+      sjgzdw, brjzdz, brsj, 
+      jjlxr, jjlxrlxfs, hkdz, 
+      sbbl, gjj, htlx, htqdcs, 
+      htkssj, htjssj, htksrq1, 
+      htjsrq1, htksrq2, htjsrq2, htksrq3, 
+      htjsrq3, htksrq4, htjsrq4, htksrq5, 
+      htjsrq5, htksrq6, htjsrq6, htksrq7, 
+      htjsrq7, htksrq8, htjsrq8, htksrq9, 
+      htjsrq9)
+    values (#{xm,jdbcType=VARCHAR}, #{gh,jdbcType=VARCHAR}, #{xb,jdbcType=VARCHAR}, #{ygxs,jdbcType=VARCHAR}, 
+      #{lb,jdbcType=VARCHAR}, #{bm,jdbcType=VARCHAR}, #{jys,jdbcType=VARCHAR}, #{gwzw,jdbcType=VARCHAR}, 
+      #{xzjb,jdbcType=VARCHAR}, #{rzrq,jdbcType=DATE}, #{sl,jdbcType=INTEGER}, #{syq,jdbcType=INTEGER}, 
+      #{syqtx,jdbcType=INTEGER}, #{sfzz,jdbcType=INTEGER}, #{zzrq,jdbcType=DATE}, #{sfzh,jdbcType=VARCHAR}, 
+      #{ksrq,jdbcType=DATE}, #{jsrq,jdbcType=DATE}, #{sfzssjg,jdbcType=VARCHAR}, #{csrq,jdbcType=VARCHAR}, 
+      #{nl,jdbcType=INTEGER}, #{jg,jdbcType=VARCHAR}, #{mz,jdbcType=VARCHAR}, #{hyzk,jdbcType=INTEGER}, 
+      #{zzmm,jdbcType=VARCHAR}, #{zclb,jdbcType=VARCHAR}, #{zc,jdbcType=VARCHAR}, #{zcjb,jdbcType=VARCHAR}, 
+      #{zczymc,jdbcType=VARCHAR}, #{zcbh,jdbcType=VARCHAR}, #{zcpzsj,jdbcType=DATE}, 
+      #{zcpysj,jdbcType=DATE}, #{zcpzdw,jdbcType=VARCHAR}, #{zszl,jdbcType=VARCHAR}, 
+      #{zshm,jdbcType=VARCHAR}, #{rjxk,jdbcType=VARCHAR}, #{zsbfrq,jdbcType=DATE}, #{zsbfjg,jdbcType=VARCHAR}, 
+      #{qtzs1,jdbcType=VARCHAR}, #{qtzs2,jdbcType=VARCHAR}, #{qtzs3,jdbcType=VARCHAR}, 
+      #{qtzs4,jdbcType=VARCHAR}, #{zg_byxx,jdbcType=VARCHAR}, #{zg_bysj,jdbcType=DATE}, 
+      #{zg_zy,jdbcType=VARCHAR}, #{zg_xl,jdbcType=VARCHAR}, #{zg_xw,jdbcType=VARCHAR}, 
+      #{zg_xwlb,jdbcType=VARCHAR}, #{zg_byzbh,jdbcType=VARCHAR}, #{zg_xwzbh,jdbcType=VARCHAR}, 
+      #{jc_byxx,jdbcType=VARCHAR}, #{jc_bysj,jdbcType=DATE}, #{jc_zy,jdbcType=VARCHAR}, 
+      #{jc_xl,jdbcType=VARCHAR}, #{jc_xw,jdbcType=VARCHAR}, #{jc_xwlb,jdbcType=VARCHAR}, 
+      #{jc_byzbh,jdbcType=VARCHAR}, #{jc_xwzbh,jdbcType=VARCHAR}, #{cjgzsj,jdbcType=DATE}, 
+      #{sjgzdw,jdbcType=VARCHAR}, #{brjzdz,jdbcType=VARCHAR}, #{brsj,jdbcType=VARCHAR}, 
+      #{jjlxr,jdbcType=VARCHAR}, #{jjlxrlxfs,jdbcType=VARCHAR}, #{hkdz,jdbcType=VARCHAR}, 
+      #{sbbl,jdbcType=VARCHAR}, #{gjj,jdbcType=VARCHAR}, #{htlx,jdbcType=VARCHAR}, #{htqdcs,jdbcType=INTEGER}, 
+      #{htkssj,jdbcType=TIMESTAMP}, #{htjssj,jdbcType=TIMESTAMP}, #{htksrq1,jdbcType=DATE}, 
+      #{htjsrq1,jdbcType=DATE}, #{htksrq2,jdbcType=DATE}, #{htjsrq2,jdbcType=DATE}, #{htksrq3,jdbcType=DATE}, 
+      #{htjsrq3,jdbcType=DATE}, #{htksrq4,jdbcType=DATE}, #{htjsrq4,jdbcType=DATE}, #{htksrq5,jdbcType=DATE}, 
+      #{htjsrq5,jdbcType=DATE}, #{htksrq6,jdbcType=DATE}, #{htjsrq6,jdbcType=DATE}, #{htksrq7,jdbcType=DATE}, 
+      #{htjsrq7,jdbcType=DATE}, #{htksrq8,jdbcType=DATE}, #{htjsrq8,jdbcType=DATE}, #{htksrq9,jdbcType=DATE}, 
+      #{htjsrq9,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.softeem.hrms.entity.Employee">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xm != null">
+        xm,
+      </if>
+      <if test="gh != null">
+        gh,
+      </if>
+      <if test="xb != null">
+        xb,
+      </if>
+      <if test="ygxs != null">
+        ygxs,
+      </if>
+      <if test="lb != null">
+        lb,
+      </if>
+      <if test="bm != null">
+        bm,
+      </if>
+      <if test="jys != null">
+        jys,
+      </if>
+      <if test="gwzw != null">
+        gwzw,
+      </if>
+      <if test="xzjb != null">
+        xzjb,
+      </if>
+      <if test="rzrq != null">
+        rzrq,
+      </if>
+      <if test="sl != null">
+        sl,
+      </if>
+      <if test="syq != null">
+        syq,
+      </if>
+      <if test="syqtx != null">
+        syqtx,
+      </if>
+      <if test="sfzz != null">
+        sfzz,
+      </if>
+      <if test="zzrq != null">
+        zzrq,
+      </if>
+      <if test="sfzh != null">
+        sfzh,
+      </if>
+      <if test="ksrq != null">
+        ksrq,
+      </if>
+      <if test="jsrq != null">
+        jsrq,
+      </if>
+      <if test="sfzssjg != null">
+        sfzssjg,
+      </if>
+      <if test="csrq != null">
+        csrq,
+      </if>
+      <if test="nl != null">
+        nl,
+      </if>
+      <if test="jg != null">
+        jg,
+      </if>
+      <if test="mz != null">
+        mz,
+      </if>
+      <if test="hyzk != null">
+        hyzk,
+      </if>
+      <if test="zzmm != null">
+        zzmm,
+      </if>
+      <if test="zclb != null">
+        zclb,
+      </if>
+      <if test="zc != null">
+        zc,
+      </if>
+      <if test="zcjb != null">
+        zcjb,
+      </if>
+      <if test="zczymc != null">
+        zczymc,
+      </if>
+      <if test="zcbh != null">
+        zcbh,
+      </if>
+      <if test="zcpzsj != null">
+        zcpzsj,
+      </if>
+      <if test="zcpysj != null">
+        zcpysj,
+      </if>
+      <if test="zcpzdw != null">
+        zcpzdw,
+      </if>
+      <if test="zszl != null">
+        zszl,
+      </if>
+      <if test="zshm != null">
+        zshm,
+      </if>
+      <if test="rjxk != null">
+        rjxk,
+      </if>
+      <if test="zsbfrq != null">
+        zsbfrq,
+      </if>
+      <if test="zsbfjg != null">
+        zsbfjg,
+      </if>
+      <if test="qtzs1 != null">
+        qtzs1,
+      </if>
+      <if test="qtzs2 != null">
+        qtzs2,
+      </if>
+      <if test="qtzs3 != null">
+        qtzs3,
+      </if>
+      <if test="qtzs4 != null">
+        qtzs4,
+      </if>
+      <if test="zg_byxx != null">
+        zg_byxx,
+      </if>
+      <if test="zg_bysj != null">
+        zg_bysj,
+      </if>
+      <if test="zg_zy != null">
+        zg_zy,
+      </if>
+      <if test="zg_xl != null">
+        zg_xl,
+      </if>
+      <if test="zg_xw != null">
+        zg_xw,
+      </if>
+      <if test="zg_xwlb != null">
+        zg_xwlb,
+      </if>
+      <if test="zg_byzbh != null">
+        zg_byzbh,
+      </if>
+      <if test="zg_xwzbh != null">
+        zg_xwzbh,
+      </if>
+      <if test="jc_byxx != null">
+        jc_byxx,
+      </if>
+      <if test="jc_bysj != null">
+        jc_bysj,
+      </if>
+      <if test="jc_zy != null">
+        jc_zy,
+      </if>
+      <if test="jc_xl != null">
+        jc_xl,
+      </if>
+      <if test="jc_xw != null">
+        jc_xw,
+      </if>
+      <if test="jc_xwlb != null">
+        jc_xwlb,
+      </if>
+      <if test="jc_byzbh != null">
+        jc_byzbh,
+      </if>
+      <if test="jc_xwzbh != null">
+        jc_xwzbh,
+      </if>
+      <if test="cjgzsj != null">
+        cjgzsj,
+      </if>
+      <if test="sjgzdw != null">
+        sjgzdw,
+      </if>
+      <if test="brjzdz != null">
+        brjzdz,
+      </if>
+      <if test="brsj != null">
+        brsj,
+      </if>
+      <if test="jjlxr != null">
+        jjlxr,
+      </if>
+      <if test="jjlxrlxfs != null">
+        jjlxrlxfs,
+      </if>
+      <if test="hkdz != null">
+        hkdz,
+      </if>
+      <if test="sbbl != null">
+        sbbl,
+      </if>
+      <if test="gjj != null">
+        gjj,
+      </if>
+      <if test="htlx != null">
+        htlx,
+      </if>
+      <if test="htqdcs != null">
+        htqdcs,
+      </if>
+      <if test="htkssj != null">
+        htkssj,
+      </if>
+      <if test="htjssj != null">
+        htjssj,
+      </if>
+      <if test="htksrq1 != null">
+        htksrq1,
+      </if>
+      <if test="htjsrq1 != null">
+        htjsrq1,
+      </if>
+      <if test="htksrq2 != null">
+        htksrq2,
+      </if>
+      <if test="htjsrq2 != null">
+        htjsrq2,
+      </if>
+      <if test="htksrq3 != null">
+        htksrq3,
+      </if>
+      <if test="htjsrq3 != null">
+        htjsrq3,
+      </if>
+      <if test="htksrq4 != null">
+        htksrq4,
+      </if>
+      <if test="htjsrq4 != null">
+        htjsrq4,
+      </if>
+      <if test="htksrq5 != null">
+        htksrq5,
+      </if>
+      <if test="htjsrq5 != null">
+        htjsrq5,
+      </if>
+      <if test="htksrq6 != null">
+        htksrq6,
+      </if>
+      <if test="htjsrq6 != null">
+        htjsrq6,
+      </if>
+      <if test="htksrq7 != null">
+        htksrq7,
+      </if>
+      <if test="htjsrq7 != null">
+        htjsrq7,
+      </if>
+      <if test="htksrq8 != null">
+        htksrq8,
+      </if>
+      <if test="htjsrq8 != null">
+        htjsrq8,
+      </if>
+      <if test="htksrq9 != null">
+        htksrq9,
+      </if>
+      <if test="htjsrq9 != null">
+        htjsrq9,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="gh != null">
+        #{gh,jdbcType=VARCHAR},
+      </if>
+      <if test="xb != null">
+        #{xb,jdbcType=VARCHAR},
+      </if>
+      <if test="ygxs != null">
+        #{ygxs,jdbcType=VARCHAR},
+      </if>
+      <if test="lb != null">
+        #{lb,jdbcType=VARCHAR},
+      </if>
+      <if test="bm != null">
+        #{bm,jdbcType=VARCHAR},
+      </if>
+      <if test="jys != null">
+        #{jys,jdbcType=VARCHAR},
+      </if>
+      <if test="gwzw != null">
+        #{gwzw,jdbcType=VARCHAR},
+      </if>
+      <if test="xzjb != null">
+        #{xzjb,jdbcType=VARCHAR},
+      </if>
+      <if test="rzrq != null">
+        #{rzrq,jdbcType=DATE},
+      </if>
+      <if test="sl != null">
+        #{sl,jdbcType=INTEGER},
+      </if>
+      <if test="syq != null">
+        #{syq,jdbcType=INTEGER},
+      </if>
+      <if test="syqtx != null">
+        #{syqtx,jdbcType=INTEGER},
+      </if>
+      <if test="sfzz != null">
+        #{sfzz,jdbcType=INTEGER},
+      </if>
+      <if test="zzrq != null">
+        #{zzrq,jdbcType=DATE},
+      </if>
+      <if test="sfzh != null">
+        #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="ksrq != null">
+        #{ksrq,jdbcType=DATE},
+      </if>
+      <if test="jsrq != null">
+        #{jsrq,jdbcType=DATE},
+      </if>
+      <if test="sfzssjg != null">
+        #{sfzssjg,jdbcType=VARCHAR},
+      </if>
+      <if test="csrq != null">
+        #{csrq,jdbcType=VARCHAR},
+      </if>
+      <if test="nl != null">
+        #{nl,jdbcType=INTEGER},
+      </if>
+      <if test="jg != null">
+        #{jg,jdbcType=VARCHAR},
+      </if>
+      <if test="mz != null">
+        #{mz,jdbcType=VARCHAR},
+      </if>
+      <if test="hyzk != null">
+        #{hyzk,jdbcType=INTEGER},
+      </if>
+      <if test="zzmm != null">
+        #{zzmm,jdbcType=VARCHAR},
+      </if>
+      <if test="zclb != null">
+        #{zclb,jdbcType=VARCHAR},
+      </if>
+      <if test="zc != null">
+        #{zc,jdbcType=VARCHAR},
+      </if>
+      <if test="zcjb != null">
+        #{zcjb,jdbcType=VARCHAR},
+      </if>
+      <if test="zczymc != null">
+        #{zczymc,jdbcType=VARCHAR},
+      </if>
+      <if test="zcbh != null">
+        #{zcbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zcpzsj != null">
+        #{zcpzsj,jdbcType=DATE},
+      </if>
+      <if test="zcpysj != null">
+        #{zcpysj,jdbcType=DATE},
+      </if>
+      <if test="zcpzdw != null">
+        #{zcpzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="zszl != null">
+        #{zszl,jdbcType=VARCHAR},
+      </if>
+      <if test="zshm != null">
+        #{zshm,jdbcType=VARCHAR},
+      </if>
+      <if test="rjxk != null">
+        #{rjxk,jdbcType=VARCHAR},
+      </if>
+      <if test="zsbfrq != null">
+        #{zsbfrq,jdbcType=DATE},
+      </if>
+      <if test="zsbfjg != null">
+        #{zsbfjg,jdbcType=VARCHAR},
+      </if>
+      <if test="qtzs1 != null">
+        #{qtzs1,jdbcType=VARCHAR},
+      </if>
+      <if test="qtzs2 != null">
+        #{qtzs2,jdbcType=VARCHAR},
+      </if>
+      <if test="qtzs3 != null">
+        #{qtzs3,jdbcType=VARCHAR},
+      </if>
+      <if test="qtzs4 != null">
+        #{qtzs4,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_byxx != null">
+        #{zg_byxx,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_bysj != null">
+        #{zg_bysj,jdbcType=DATE},
+      </if>
+      <if test="zg_zy != null">
+        #{zg_zy,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_xl != null">
+        #{zg_xl,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_xw != null">
+        #{zg_xw,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_xwlb != null">
+        #{zg_xwlb,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_byzbh != null">
+        #{zg_byzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_xwzbh != null">
+        #{zg_xwzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_byxx != null">
+        #{jc_byxx,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_bysj != null">
+        #{jc_bysj,jdbcType=DATE},
+      </if>
+      <if test="jc_zy != null">
+        #{jc_zy,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_xl != null">
+        #{jc_xl,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_xw != null">
+        #{jc_xw,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_xwlb != null">
+        #{jc_xwlb,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_byzbh != null">
+        #{jc_byzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_xwzbh != null">
+        #{jc_xwzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="cjgzsj != null">
+        #{cjgzsj,jdbcType=DATE},
+      </if>
+      <if test="sjgzdw != null">
+        #{sjgzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="brjzdz != null">
+        #{brjzdz,jdbcType=VARCHAR},
+      </if>
+      <if test="brsj != null">
+        #{brsj,jdbcType=VARCHAR},
+      </if>
+      <if test="jjlxr != null">
+        #{jjlxr,jdbcType=VARCHAR},
+      </if>
+      <if test="jjlxrlxfs != null">
+        #{jjlxrlxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="hkdz != null">
+        #{hkdz,jdbcType=VARCHAR},
+      </if>
+      <if test="sbbl != null">
+        #{sbbl,jdbcType=VARCHAR},
+      </if>
+      <if test="gjj != null">
+        #{gjj,jdbcType=VARCHAR},
+      </if>
+      <if test="htlx != null">
+        #{htlx,jdbcType=VARCHAR},
+      </if>
+      <if test="htqdcs != null">
+        #{htqdcs,jdbcType=INTEGER},
+      </if>
+      <if test="htkssj != null">
+        #{htkssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="htjssj != null">
+        #{htjssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="htksrq1 != null">
+        #{htksrq1,jdbcType=DATE},
+      </if>
+      <if test="htjsrq1 != null">
+        #{htjsrq1,jdbcType=DATE},
+      </if>
+      <if test="htksrq2 != null">
+        #{htksrq2,jdbcType=DATE},
+      </if>
+      <if test="htjsrq2 != null">
+        #{htjsrq2,jdbcType=DATE},
+      </if>
+      <if test="htksrq3 != null">
+        #{htksrq3,jdbcType=DATE},
+      </if>
+      <if test="htjsrq3 != null">
+        #{htjsrq3,jdbcType=DATE},
+      </if>
+      <if test="htksrq4 != null">
+        #{htksrq4,jdbcType=DATE},
+      </if>
+      <if test="htjsrq4 != null">
+        #{htjsrq4,jdbcType=DATE},
+      </if>
+      <if test="htksrq5 != null">
+        #{htksrq5,jdbcType=DATE},
+      </if>
+      <if test="htjsrq5 != null">
+        #{htjsrq5,jdbcType=DATE},
+      </if>
+      <if test="htksrq6 != null">
+        #{htksrq6,jdbcType=DATE},
+      </if>
+      <if test="htjsrq6 != null">
+        #{htjsrq6,jdbcType=DATE},
+      </if>
+      <if test="htksrq7 != null">
+        #{htksrq7,jdbcType=DATE},
+      </if>
+      <if test="htjsrq7 != null">
+        #{htjsrq7,jdbcType=DATE},
+      </if>
+      <if test="htksrq8 != null">
+        #{htksrq8,jdbcType=DATE},
+      </if>
+      <if test="htjsrq8 != null">
+        #{htjsrq8,jdbcType=DATE},
+      </if>
+      <if test="htksrq9 != null">
+        #{htksrq9,jdbcType=DATE},
+      </if>
+      <if test="htjsrq9 != null">
+        #{htjsrq9,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.softeem.hrms.entity.Employee">
+    update employee
+    <set>
+      <if test="xm != null">
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="gh != null">
+        gh = #{gh,jdbcType=VARCHAR},
+      </if>
+      <if test="xb != null">
+        xb = #{xb,jdbcType=VARCHAR},
+      </if>
+      <if test="ygxs != null">
+        ygxs = #{ygxs,jdbcType=VARCHAR},
+      </if>
+      <if test="lb != null">
+        lb = #{lb,jdbcType=VARCHAR},
+      </if>
+      <if test="bm != null">
+        bm = #{bm,jdbcType=VARCHAR},
+      </if>
+      <if test="jys != null">
+        jys = #{jys,jdbcType=VARCHAR},
+      </if>
+      <if test="gwzw != null">
+        gwzw = #{gwzw,jdbcType=VARCHAR},
+      </if>
+      <if test="xzjb != null">
+        xzjb = #{xzjb,jdbcType=VARCHAR},
+      </if>
+      <if test="rzrq != null">
+        rzrq = #{rzrq,jdbcType=DATE},
+      </if>
+      <if test="sl != null">
+        sl = #{sl,jdbcType=INTEGER},
+      </if>
+      <if test="syq != null">
+        syq = #{syq,jdbcType=INTEGER},
+      </if>
+      <if test="syqtx != null">
+        syqtx = #{syqtx,jdbcType=INTEGER},
+      </if>
+      <if test="sfzz != null">
+        sfzz = #{sfzz,jdbcType=INTEGER},
+      </if>
+      <if test="zzrq != null">
+        zzrq = #{zzrq,jdbcType=DATE},
+      </if>
+      <if test="sfzh != null">
+        sfzh = #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="ksrq != null">
+        ksrq = #{ksrq,jdbcType=DATE},
+      </if>
+      <if test="jsrq != null">
+        jsrq = #{jsrq,jdbcType=DATE},
+      </if>
+      <if test="sfzssjg != null">
+        sfzssjg = #{sfzssjg,jdbcType=VARCHAR},
+      </if>
+      <if test="csrq != null">
+        csrq = #{csrq,jdbcType=VARCHAR},
+      </if>
+      <if test="nl != null">
+        nl = #{nl,jdbcType=INTEGER},
+      </if>
+      <if test="jg != null">
+        jg = #{jg,jdbcType=VARCHAR},
+      </if>
+      <if test="mz != null">
+        mz = #{mz,jdbcType=VARCHAR},
+      </if>
+      <if test="hyzk != null">
+        hyzk = #{hyzk,jdbcType=INTEGER},
+      </if>
+      <if test="zzmm != null">
+        zzmm = #{zzmm,jdbcType=VARCHAR},
+      </if>
+      <if test="zclb != null">
+        zclb = #{zclb,jdbcType=VARCHAR},
+      </if>
+      <if test="zc != null">
+        zc = #{zc,jdbcType=VARCHAR},
+      </if>
+      <if test="zcjb != null">
+        zcjb = #{zcjb,jdbcType=VARCHAR},
+      </if>
+      <if test="zczymc != null">
+        zczymc = #{zczymc,jdbcType=VARCHAR},
+      </if>
+      <if test="zcbh != null">
+        zcbh = #{zcbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zcpzsj != null">
+        zcpzsj = #{zcpzsj,jdbcType=DATE},
+      </if>
+      <if test="zcpysj != null">
+        zcpysj = #{zcpysj,jdbcType=DATE},
+      </if>
+      <if test="zcpzdw != null">
+        zcpzdw = #{zcpzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="zszl != null">
+        zszl = #{zszl,jdbcType=VARCHAR},
+      </if>
+      <if test="zshm != null">
+        zshm = #{zshm,jdbcType=VARCHAR},
+      </if>
+      <if test="rjxk != null">
+        rjxk = #{rjxk,jdbcType=VARCHAR},
+      </if>
+      <if test="zsbfrq != null">
+        zsbfrq = #{zsbfrq,jdbcType=DATE},
+      </if>
+      <if test="zsbfjg != null">
+        zsbfjg = #{zsbfjg,jdbcType=VARCHAR},
+      </if>
+      <if test="qtzs1 != null">
+        qtzs1 = #{qtzs1,jdbcType=VARCHAR},
+      </if>
+      <if test="qtzs2 != null">
+        qtzs2 = #{qtzs2,jdbcType=VARCHAR},
+      </if>
+      <if test="qtzs3 != null">
+        qtzs3 = #{qtzs3,jdbcType=VARCHAR},
+      </if>
+      <if test="qtzs4 != null">
+        qtzs4 = #{qtzs4,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_byxx != null">
+        zg_byxx = #{zg_byxx,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_bysj != null">
+        zg_bysj = #{zg_bysj,jdbcType=DATE},
+      </if>
+      <if test="zg_zy != null">
+        zg_zy = #{zg_zy,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_xl != null">
+        zg_xl = #{zg_xl,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_xw != null">
+        zg_xw = #{zg_xw,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_xwlb != null">
+        zg_xwlb = #{zg_xwlb,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_byzbh != null">
+        zg_byzbh = #{zg_byzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zg_xwzbh != null">
+        zg_xwzbh = #{zg_xwzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_byxx != null">
+        jc_byxx = #{jc_byxx,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_bysj != null">
+        jc_bysj = #{jc_bysj,jdbcType=DATE},
+      </if>
+      <if test="jc_zy != null">
+        jc_zy = #{jc_zy,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_xl != null">
+        jc_xl = #{jc_xl,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_xw != null">
+        jc_xw = #{jc_xw,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_xwlb != null">
+        jc_xwlb = #{jc_xwlb,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_byzbh != null">
+        jc_byzbh = #{jc_byzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="jc_xwzbh != null">
+        jc_xwzbh = #{jc_xwzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="cjgzsj != null">
+        cjgzsj = #{cjgzsj,jdbcType=DATE},
+      </if>
+      <if test="sjgzdw != null">
+        sjgzdw = #{sjgzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="brjzdz != null">
+        brjzdz = #{brjzdz,jdbcType=VARCHAR},
+      </if>
+      <if test="brsj != null">
+        brsj = #{brsj,jdbcType=VARCHAR},
+      </if>
+      <if test="jjlxr != null">
+        jjlxr = #{jjlxr,jdbcType=VARCHAR},
+      </if>
+      <if test="jjlxrlxfs != null">
+        jjlxrlxfs = #{jjlxrlxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="hkdz != null">
+        hkdz = #{hkdz,jdbcType=VARCHAR},
+      </if>
+      <if test="sbbl != null">
+        sbbl = #{sbbl,jdbcType=VARCHAR},
+      </if>
+      <if test="gjj != null">
+        gjj = #{gjj,jdbcType=VARCHAR},
+      </if>
+      <if test="htlx != null">
+        htlx = #{htlx,jdbcType=VARCHAR},
+      </if>
+      <if test="htqdcs != null">
+        htqdcs = #{htqdcs,jdbcType=INTEGER},
+      </if>
+      <if test="htkssj != null">
+        htkssj = #{htkssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="htjssj != null">
+        htjssj = #{htjssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="htksrq1 != null">
+        htksrq1 = #{htksrq1,jdbcType=DATE},
+      </if>
+      <if test="htjsrq1 != null">
+        htjsrq1 = #{htjsrq1,jdbcType=DATE},
+      </if>
+      <if test="htksrq2 != null">
+        htksrq2 = #{htksrq2,jdbcType=DATE},
+      </if>
+      <if test="htjsrq2 != null">
+        htjsrq2 = #{htjsrq2,jdbcType=DATE},
+      </if>
+      <if test="htksrq3 != null">
+        htksrq3 = #{htksrq3,jdbcType=DATE},
+      </if>
+      <if test="htjsrq3 != null">
+        htjsrq3 = #{htjsrq3,jdbcType=DATE},
+      </if>
+      <if test="htksrq4 != null">
+        htksrq4 = #{htksrq4,jdbcType=DATE},
+      </if>
+      <if test="htjsrq4 != null">
+        htjsrq4 = #{htjsrq4,jdbcType=DATE},
+      </if>
+      <if test="htksrq5 != null">
+        htksrq5 = #{htksrq5,jdbcType=DATE},
+      </if>
+      <if test="htjsrq5 != null">
+        htjsrq5 = #{htjsrq5,jdbcType=DATE},
+      </if>
+      <if test="htksrq6 != null">
+        htksrq6 = #{htksrq6,jdbcType=DATE},
+      </if>
+      <if test="htjsrq6 != null">
+        htjsrq6 = #{htjsrq6,jdbcType=DATE},
+      </if>
+      <if test="htksrq7 != null">
+        htksrq7 = #{htksrq7,jdbcType=DATE},
+      </if>
+      <if test="htjsrq7 != null">
+        htjsrq7 = #{htjsrq7,jdbcType=DATE},
+      </if>
+      <if test="htksrq8 != null">
+        htksrq8 = #{htksrq8,jdbcType=DATE},
+      </if>
+      <if test="htjsrq8 != null">
+        htjsrq8 = #{htjsrq8,jdbcType=DATE},
+      </if>
+      <if test="htksrq9 != null">
+        htksrq9 = #{htksrq9,jdbcType=DATE},
+      </if>
+      <if test="htjsrq9 != null">
+        htjsrq9 = #{htjsrq9,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.softeem.hrms.entity.Employee">
+    update employee
+    set xm = #{xm,jdbcType=VARCHAR},
+      gh = #{gh,jdbcType=VARCHAR},
+      xb = #{xb,jdbcType=VARCHAR},
+      ygxs = #{ygxs,jdbcType=VARCHAR},
+      lb = #{lb,jdbcType=VARCHAR},
+      bm = #{bm,jdbcType=VARCHAR},
+      jys = #{jys,jdbcType=VARCHAR},
+      gwzw = #{gwzw,jdbcType=VARCHAR},
+      xzjb = #{xzjb,jdbcType=VARCHAR},
+      rzrq = #{rzrq,jdbcType=DATE},
+      sl = #{sl,jdbcType=INTEGER},
+      syq = #{syq,jdbcType=INTEGER},
+      syqtx = #{syqtx,jdbcType=INTEGER},
+      sfzz = #{sfzz,jdbcType=INTEGER},
+      zzrq = #{zzrq,jdbcType=DATE},
+      sfzh = #{sfzh,jdbcType=VARCHAR},
+      ksrq = #{ksrq,jdbcType=DATE},
+      jsrq = #{jsrq,jdbcType=DATE},
+      sfzssjg = #{sfzssjg,jdbcType=VARCHAR},
+      csrq = #{csrq,jdbcType=VARCHAR},
+      nl = #{nl,jdbcType=INTEGER},
+      jg = #{jg,jdbcType=VARCHAR},
+      mz = #{mz,jdbcType=VARCHAR},
+      hyzk = #{hyzk,jdbcType=INTEGER},
+      zzmm = #{zzmm,jdbcType=VARCHAR},
+      zclb = #{zclb,jdbcType=VARCHAR},
+      zc = #{zc,jdbcType=VARCHAR},
+      zcjb = #{zcjb,jdbcType=VARCHAR},
+      zczymc = #{zczymc,jdbcType=VARCHAR},
+      zcbh = #{zcbh,jdbcType=VARCHAR},
+      zcpzsj = #{zcpzsj,jdbcType=DATE},
+      zcpysj = #{zcpysj,jdbcType=DATE},
+      zcpzdw = #{zcpzdw,jdbcType=VARCHAR},
+      zszl = #{zszl,jdbcType=VARCHAR},
+      zshm = #{zshm,jdbcType=VARCHAR},
+      rjxk = #{rjxk,jdbcType=VARCHAR},
+      zsbfrq = #{zsbfrq,jdbcType=DATE},
+      zsbfjg = #{zsbfjg,jdbcType=VARCHAR},
+      qtzs1 = #{qtzs1,jdbcType=VARCHAR},
+      qtzs2 = #{qtzs2,jdbcType=VARCHAR},
+      qtzs3 = #{qtzs3,jdbcType=VARCHAR},
+      qtzs4 = #{qtzs4,jdbcType=VARCHAR},
+      zg_byxx = #{zg_byxx,jdbcType=VARCHAR},
+      zg_bysj = #{zg_bysj,jdbcType=DATE},
+      zg_zy = #{zg_zy,jdbcType=VARCHAR},
+      zg_xl = #{zg_xl,jdbcType=VARCHAR},
+      zg_xw = #{zg_xw,jdbcType=VARCHAR},
+      zg_xwlb = #{zg_xwlb,jdbcType=VARCHAR},
+      zg_byzbh = #{zg_byzbh,jdbcType=VARCHAR},
+      zg_xwzbh = #{zg_xwzbh,jdbcType=VARCHAR},
+      jc_byxx = #{jc_byxx,jdbcType=VARCHAR},
+      jc_bysj = #{jc_bysj,jdbcType=DATE},
+      jc_zy = #{jc_zy,jdbcType=VARCHAR},
+      jc_xl = #{jc_xl,jdbcType=VARCHAR},
+      jc_xw = #{jc_xw,jdbcType=VARCHAR},
+      jc_xwlb = #{jc_xwlb,jdbcType=VARCHAR},
+      jc_byzbh = #{jc_byzbh,jdbcType=VARCHAR},
+      jc_xwzbh = #{jc_xwzbh,jdbcType=VARCHAR},
+      cjgzsj = #{cjgzsj,jdbcType=DATE},
+      sjgzdw = #{sjgzdw,jdbcType=VARCHAR},
+      brjzdz = #{brjzdz,jdbcType=VARCHAR},
+      brsj = #{brsj,jdbcType=VARCHAR},
+      jjlxr = #{jjlxr,jdbcType=VARCHAR},
+      jjlxrlxfs = #{jjlxrlxfs,jdbcType=VARCHAR},
+      hkdz = #{hkdz,jdbcType=VARCHAR},
+      sbbl = #{sbbl,jdbcType=VARCHAR},
+      gjj = #{gjj,jdbcType=VARCHAR},
+      htlx = #{htlx,jdbcType=VARCHAR},
+      htqdcs = #{htqdcs,jdbcType=INTEGER},
+      htkssj = #{htkssj,jdbcType=TIMESTAMP},
+      htjssj = #{htjssj,jdbcType=TIMESTAMP},
+      htksrq1 = #{htksrq1,jdbcType=DATE},
+      htjsrq1 = #{htjsrq1,jdbcType=DATE},
+      htksrq2 = #{htksrq2,jdbcType=DATE},
+      htjsrq2 = #{htjsrq2,jdbcType=DATE},
+      htksrq3 = #{htksrq3,jdbcType=DATE},
+      htjsrq3 = #{htjsrq3,jdbcType=DATE},
+      htksrq4 = #{htksrq4,jdbcType=DATE},
+      htjsrq4 = #{htjsrq4,jdbcType=DATE},
+      htksrq5 = #{htksrq5,jdbcType=DATE},
+      htjsrq5 = #{htjsrq5,jdbcType=DATE},
+      htksrq6 = #{htksrq6,jdbcType=DATE},
+      htjsrq6 = #{htjsrq6,jdbcType=DATE},
+      htksrq7 = #{htksrq7,jdbcType=DATE},
+      htjsrq7 = #{htjsrq7,jdbcType=DATE},
+      htksrq8 = #{htksrq8,jdbcType=DATE},
+      htjsrq8 = #{htjsrq8,jdbcType=DATE},
+      htksrq9 = #{htksrq9,jdbcType=DATE},
+      htjsrq9 = #{htjsrq9,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+  		select
+  		<include refid="Base_Column_List"/>
+  		from employee
+  </select>
+</mapper>

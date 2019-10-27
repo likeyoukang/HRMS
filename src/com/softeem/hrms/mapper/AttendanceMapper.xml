@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.softeem.hrms.dao.AttendanceMapper">
+  <resultMap id="BaseResultMap" type="com.softeem.hrms.entity.Attendance">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="bm" jdbcType="VARCHAR" property="bm" />
+    <result column="gcsj" jdbcType="DATE" property="gcsj" />
+    <result column="wdkcs" jdbcType="INTEGER" property="wdkcs" />
+    <result column="cdcs" jdbcType="INTEGER" property="cdcs" />
+    <result column="ztcs" jdbcType="INTEGER" property="ztcs" />
+    <result column="kgts" jdbcType="INTEGER" property="kgts" />
+    <result column="sjts" jdbcType="INTEGER" property="sjts" />
+    <result column="bjts" jdbcType="INTEGER" property="bjts" />
+    <result column="cj_hljts" jdbcType="INTEGER" property="cj_hljts" />
+    <result column="hjts" jdbcType="INTEGER" property="hjts" />
+    <result column="sjts1" jdbcType="INTEGER" property="sjts1" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, xm, bm, gcsj, wdkcs, cdcs, ztcs, kgts, sjts, bjts, cj_hljts, hjts, sjts1
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from attendance
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from attendance
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.softeem.hrms.entity.Attendance">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into attendance (xm, bm, gcsj, wdkcs, 
+      cdcs, ztcs, kgts, sjts, 
+      bjts, cj_hljts, hjts, 
+      sjts1)
+    values (#{xm,jdbcType=VARCHAR}, #{bm,jdbcType=VARCHAR}, #{gcsj,jdbcType=DATE}, #{wdkcs,jdbcType=INTEGER}, 
+      #{cdcs,jdbcType=INTEGER}, #{ztcs,jdbcType=INTEGER}, #{kgts,jdbcType=INTEGER}, #{sjts,jdbcType=INTEGER}, 
+      #{bjts,jdbcType=INTEGER}, #{cj_hljts,jdbcType=INTEGER}, #{hjts,jdbcType=INTEGER}, 
+      #{sjts1,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.softeem.hrms.entity.Attendance">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into attendance
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xm != null">
+        xm,
+      </if>
+      <if test="bm != null">
+        bm,
+      </if>
+      <if test="gcsj != null">
+        gcsj,
+      </if>
+      <if test="wdkcs != null">
+        wdkcs,
+      </if>
+      <if test="cdcs != null">
+        cdcs,
+      </if>
+      <if test="ztcs != null">
+        ztcs,
+      </if>
+      <if test="kgts != null">
+        kgts,
+      </if>
+      <if test="sjts != null">
+        sjts,
+      </if>
+      <if test="bjts != null">
+        bjts,
+      </if>
+      <if test="cj_hljts != null">
+        cj_hljts,
+      </if>
+      <if test="hjts != null">
+        hjts,
+      </if>
+      <if test="sjts1 != null">
+        sjts1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="bm != null">
+        #{bm,jdbcType=VARCHAR},
+      </if>
+      <if test="gcsj != null">
+        #{gcsj,jdbcType=DATE},
+      </if>
+      <if test="wdkcs != null">
+        #{wdkcs,jdbcType=INTEGER},
+      </if>
+      <if test="cdcs != null">
+        #{cdcs,jdbcType=INTEGER},
+      </if>
+      <if test="ztcs != null">
+        #{ztcs,jdbcType=INTEGER},
+      </if>
+      <if test="kgts != null">
+        #{kgts,jdbcType=INTEGER},
+      </if>
+      <if test="sjts != null">
+        #{sjts,jdbcType=INTEGER},
+      </if>
+      <if test="bjts != null">
+        #{bjts,jdbcType=INTEGER},
+      </if>
+      <if test="cj_hljts != null">
+        #{cj_hljts,jdbcType=INTEGER},
+      </if>
+      <if test="hjts != null">
+        #{hjts,jdbcType=INTEGER},
+      </if>
+      <if test="sjts1 != null">
+        #{sjts1,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.softeem.hrms.entity.Attendance">
+    update attendance
+    <set>
+      <if test="xm != null">
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="bm != null">
+        bm = #{bm,jdbcType=VARCHAR},
+      </if>
+      <if test="gcsj != null">
+        gcsj = #{gcsj,jdbcType=DATE},
+      </if>
+      <if test="wdkcs != null">
+        wdkcs = #{wdkcs,jdbcType=INTEGER},
+      </if>
+      <if test="cdcs != null">
+        cdcs = #{cdcs,jdbcType=INTEGER},
+      </if>
+      <if test="ztcs != null">
+        ztcs = #{ztcs,jdbcType=INTEGER},
+      </if>
+      <if test="kgts != null">
+        kgts = #{kgts,jdbcType=INTEGER},
+      </if>
+      <if test="sjts != null">
+        sjts = #{sjts,jdbcType=INTEGER},
+      </if>
+      <if test="bjts != null">
+        bjts = #{bjts,jdbcType=INTEGER},
+      </if>
+      <if test="cj_hljts != null">
+        cj_hljts = #{cj_hljts,jdbcType=INTEGER},
+      </if>
+      <if test="hjts != null">
+        hjts = #{hjts,jdbcType=INTEGER},
+      </if>
+      <if test="sjts1 != null">
+        sjts1 = #{sjts1,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.softeem.hrms.entity.Attendance">
+    update attendance
+    set xm = #{xm,jdbcType=VARCHAR},
+      bm = #{bm,jdbcType=VARCHAR},
+      gcsj = #{gcsj,jdbcType=DATE},
+      wdkcs = #{wdkcs,jdbcType=INTEGER},
+      cdcs = #{cdcs,jdbcType=INTEGER},
+      ztcs = #{ztcs,jdbcType=INTEGER},
+      kgts = #{kgts,jdbcType=INTEGER},
+      sjts = #{sjts,jdbcType=INTEGER},
+      bjts = #{bjts,jdbcType=INTEGER},
+      cj_hljts = #{cj_hljts,jdbcType=INTEGER},
+      hjts = #{hjts,jdbcType=INTEGER},
+      sjts1 = #{sjts1,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectAll" resultMap="BaseResultMap">
+  		select
+  		<include refid="Base_Column_List"/>
+  		from attendance
+  </select>
+</mapper>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context" 
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans    
+                        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                        http://www.springframework.org/schema/aop
+         				http://www.springframework.org/schema/aop/spring-aop.xsd    
+                        http://www.springframework.org/schema/context    
+                        http://www.springframework.org/schema/context/spring-context-3.2.xsd  
+                        http://www.springframework.org/schema/tx 
+        				http://www.springframework.org/schema/tx/spring-tx.xsd  
+                        http://www.springframework.org/schema/mvc    
+                        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">  
+
+    <!-- 引入配置文件 -->  
+<!--     <bean id="propertyConfigurer"   -->
+<!--         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">   -->
+<!--         <property name="location" value="classpath:jdbc.properties" />   -->
+<!--     </bean>   -->
+
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">  
+        <property name="driverClassName" value="${driver}"></property>
+        <property name="url" value="${url}"></property>
+        <property name="username" value="${user}"></property>
+        <property name="password" value="${password}"></property>
+        <property name="initialSize" value="${initialSize}"></property>
+        <property name="maxActive" value="${maxActive}"></property>
+        <property name="minIdle" value="${minIdle}"></property>
+        <property name="maxWait" value="${maxWait}"></property>
+    </bean>  
+
+    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->  
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+        <property name="dataSource" ref="dataSource" />  
+        <!-- 自动扫描mapping.xml文件 -->  
+        <property name="mapperLocations" value="classpath:com/softeem/hrms/mapper/*.xml"></property>  
+    </bean>  
+    
+    <!-- sqlSessionTemplate -->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">   
+          <constructor-arg index="0" ref="sqlSessionFactory" />   
+      </bean>  
+
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->  
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+        <property name="basePackage" value="com.softeem.hrms.dao" />  
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>  
+    </bean>  
+
+    <!-- (事务管理)transaction manager -->  
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+        <property name="dataSource" ref="dataSource" />  
+    </bean>
+    
+     <!-- 配置拦截service -->
+<!--       <aop:config> -->
+<!--           <aop:pointcut expression="execution(* com.softeem.hrms2.service..*(..))" id="txPoint"/> -->
+<!--           <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/> -->
+<!--       </aop:config> -->
+
+      <!-- 配置事物增强,事物如何切入-->
+<!--       <tx:advice id="txAdvice" transaction-manager="txManager"> -->
+<!--           <tx:attributes> -->
+<!--               所有方法都是事物方法 -->
+<!--               <tx:method name="*"/> -->
+<!--               以get开始的所有方法 -->
+<!--               <tx:method name="get*" read-only="true"/> -->
+<!--           </tx:attributes> -->
+<!--       </tx:advice> -->
+    
+</beans> 

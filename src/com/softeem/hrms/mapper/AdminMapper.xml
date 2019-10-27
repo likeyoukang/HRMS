@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.softeem.hrms.dao.AdminMapper">
+  <resultMap id="BaseResultMap" type="com.softeem.hrms.entity.Admin">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="user_name" />
+    <result column="user_pwd" jdbcType="VARCHAR" property="user_pwd" />
+    <result column="record_time" jdbcType="TIMESTAMP" property="record_time" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_name, user_pwd, record_time, status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from admin
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from admin
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.softeem.hrms.entity.Admin">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into admin (user_name, user_pwd, record_time, 
+      status)
+    values (#{user_name,jdbcType=VARCHAR}, #{user_pwd,jdbcType=VARCHAR}, #{record_time,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.softeem.hrms.entity.Admin">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into admin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="user_name != null">
+        user_name,
+      </if>
+      <if test="user_pwd != null">
+        user_pwd,
+      </if>
+      <if test="record_time != null">
+        record_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="user_name != null">
+        #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="user_pwd != null">
+        #{user_pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record_time != null">
+        #{record_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.softeem.hrms.entity.Admin">
+    update admin
+    <set>
+      <if test="user_name != null">
+        user_name = #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="user_pwd != null">
+        user_pwd = #{user_pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record_time != null">
+        record_time = #{record_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.softeem.hrms.entity.Admin">
+    update admin
+    set user_name = #{user_name,jdbcType=VARCHAR},
+      user_pwd = #{user_pwd,jdbcType=VARCHAR},
+      record_time = #{record_time,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+  		select
+  		<include refid="Base_Column_List"/>
+  		from admin
+  </select>
+  
+  <!-- 登录 -->
+  <select id="selectByAdmin" resultType="com.softeem.hrms.entity.Admin" parameterType="com.softeem.hrms.entity.Admin">
+  	select
+  	<include refid="Base_Column_List"/>
+  	from admin where user_name = #{user_name} 
+  	and user_pwd = #{user_pwd}
+  </select>
+ 
+  
+</mapper>

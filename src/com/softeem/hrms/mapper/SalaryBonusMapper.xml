@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.softeem.hrms.dao.SalaryBonusMapper">
+  <resultMap id="BaseResultMap" type="com.softeem.hrms.entity.SalaryBonus">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="bm" jdbcType="VARCHAR" property="bm" />
+    <result column="nzj" jdbcType="VARCHAR" property="nzj" />
+    <result column="whgljl" jdbcType="VARCHAR" property="whgljl" />
+    <result column="yxjxcgj" jdbcType="VARCHAR" property="yxjxcgj" />
+    <result column="kycg" jdbcType="VARCHAR" property="kycg" />
+    <result column="sjjsjl" jdbcType="VARCHAR" property="sjjsjl" />
+    <result column="bykyjl" jdbcType="VARCHAR" property="bykyjl" />
+    <result column="dyxyjl" jdbcType="VARCHAR" property="dyxyjl" />
+    <result column="jzgbsjbt" jdbcType="VARCHAR" property="jzgbsjbt" />
+    <result column="xwssjl" jdbcType="VARCHAR" property="xwssjl" />
+    <result column="yxbysjl" jdbcType="VARCHAR" property="yxbysjl" />
+    <result column="cdjl" jdbcType="VARCHAR" property="cdjl" />
+    <result column="yzzlkc" jdbcType="VARCHAR" property="yzzlkc" />
+    <result column="xgccfjl" jdbcType="VARCHAR" property="xgccfjl" />
+    <result column="kc" jdbcType="VARCHAR" property="kc" />
+    <result column="xj" jdbcType="VARCHAR" property="xj" />
+    <result column="dksbgjj" jdbcType="VARCHAR" property="dksbgjj" />
+    <result column="bak" jdbcType="VARCHAR" property="bak" />
+    <result column="yfje" jdbcType="VARCHAR" property="yfje" />
+    <result column="js" jdbcType="VARCHAR" property="js" />
+    <result column="ykgrsds" jdbcType="VARCHAR" property="ykgrsds" />
+    <result column="sfje" jdbcType="VARCHAR" property="sfje" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, xm, bm, nzj, whgljl, yxjxcgj, kycg, sjjsjl, bykyjl, dyxyjl, jzgbsjbt, xwssjl, 
+    yxbysjl, cdjl, yzzlkc, xgccfjl, kc, xj, dksbgjj, bak, yfje, js, ykgrsds, sfje
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from salary_bonus
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from salary_bonus
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.softeem.hrms.entity.SalaryBonus">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into salary_bonus (xm, bm, nzj, 
+      whgljl, yxjxcgj, kycg, 
+      sjjsjl, bykyjl, dyxyjl, 
+      jzgbsjbt, xwssjl, yxbysjl, 
+      cdjl, yzzlkc, xgccfjl, 
+      kc, xj, dksbgjj, bak, 
+      yfje, js, ykgrsds, 
+      sfje)
+    values (#{xm,jdbcType=VARCHAR}, #{bm,jdbcType=VARCHAR}, #{nzj,jdbcType=VARCHAR}, 
+      #{whgljl,jdbcType=VARCHAR}, #{yxjxcgj,jdbcType=VARCHAR}, #{kycg,jdbcType=VARCHAR}, 
+      #{sjjsjl,jdbcType=VARCHAR}, #{bykyjl,jdbcType=VARCHAR}, #{dyxyjl,jdbcType=VARCHAR}, 
+      #{jzgbsjbt,jdbcType=VARCHAR}, #{xwssjl,jdbcType=VARCHAR}, #{yxbysjl,jdbcType=VARCHAR}, 
+      #{cdjl,jdbcType=VARCHAR}, #{yzzlkc,jdbcType=VARCHAR}, #{xgccfjl,jdbcType=VARCHAR}, 
+      #{kc,jdbcType=VARCHAR}, #{xj,jdbcType=VARCHAR}, #{dksbgjj,jdbcType=VARCHAR}, #{bak,jdbcType=VARCHAR}, 
+      #{yfje,jdbcType=VARCHAR}, #{js,jdbcType=VARCHAR}, #{ykgrsds,jdbcType=VARCHAR}, 
+      #{sfje,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.softeem.hrms.entity.SalaryBonus">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into salary_bonus
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xm != null">
+        xm,
+      </if>
+      <if test="bm != null">
+        bm,
+      </if>
+      <if test="nzj != null">
+        nzj,
+      </if>
+      <if test="whgljl != null">
+        whgljl,
+      </if>
+      <if test="yxjxcgj != null">
+        yxjxcgj,
+      </if>
+      <if test="kycg != null">
+        kycg,
+      </if>
+      <if test="sjjsjl != null">
+        sjjsjl,
+      </if>
+      <if test="bykyjl != null">
+        bykyjl,
+      </if>
+      <if test="dyxyjl != null">
+        dyxyjl,
+      </if>
+      <if test="jzgbsjbt != null">
+        jzgbsjbt,
+      </if>
+      <if test="xwssjl != null">
+        xwssjl,
+      </if>
+      <if test="yxbysjl != null">
+        yxbysjl,
+      </if>
+      <if test="cdjl != null">
+        cdjl,
+      </if>
+      <if test="yzzlkc != null">
+        yzzlkc,
+      </if>
+      <if test="xgccfjl != null">
+        xgccfjl,
+      </if>
+      <if test="kc != null">
+        kc,
+      </if>
+      <if test="xj != null">
+        xj,
+      </if>
+      <if test="dksbgjj != null">
+        dksbgjj,
+      </if>
+      <if test="bak != null">
+        bak,
+      </if>
+      <if test="yfje != null">
+        yfje,
+      </if>
+      <if test="js != null">
+        js,
+      </if>
+      <if test="ykgrsds != null">
+        ykgrsds,
+      </if>
+      <if test="sfje != null">
+        sfje,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="bm != null">
+        #{bm,jdbcType=VARCHAR},
+      </if>
+      <if test="nzj != null">
+        #{nzj,jdbcType=VARCHAR},
+      </if>
+      <if test="whgljl != null">
+        #{whgljl,jdbcType=VARCHAR},
+      </if>
+      <if test="yxjxcgj != null">
+        #{yxjxcgj,jdbcType=VARCHAR},
+      </if>
+      <if test="kycg != null">
+        #{kycg,jdbcType=VARCHAR},
+      </if>
+      <if test="sjjsjl != null">
+        #{sjjsjl,jdbcType=VARCHAR},
+      </if>
+      <if test="bykyjl != null">
+        #{bykyjl,jdbcType=VARCHAR},
+      </if>
+      <if test="dyxyjl != null">
+        #{dyxyjl,jdbcType=VARCHAR},
+      </if>
+      <if test="jzgbsjbt != null">
+        #{jzgbsjbt,jdbcType=VARCHAR},
+      </if>
+      <if test="xwssjl != null">
+        #{xwssjl,jdbcType=VARCHAR},
+      </if>
+      <if test="yxbysjl != null">
+        #{yxbysjl,jdbcType=VARCHAR},
+      </if>
+      <if test="cdjl != null">
+        #{cdjl,jdbcType=VARCHAR},
+      </if>
+      <if test="yzzlkc != null">
+        #{yzzlkc,jdbcType=VARCHAR},
+      </if>
+      <if test="xgccfjl != null">
+        #{xgccfjl,jdbcType=VARCHAR},
+      </if>
+      <if test="kc != null">
+        #{kc,jdbcType=VARCHAR},
+      </if>
+      <if test="xj != null">
+        #{xj,jdbcType=VARCHAR},
+      </if>
+      <if test="dksbgjj != null">
+        #{dksbgjj,jdbcType=VARCHAR},
+      </if>
+      <if test="bak != null">
+        #{bak,jdbcType=VARCHAR},
+      </if>
+      <if test="yfje != null">
+        #{yfje,jdbcType=VARCHAR},
+      </if>
+      <if test="js != null">
+        #{js,jdbcType=VARCHAR},
+      </if>
+      <if test="ykgrsds != null">
+        #{ykgrsds,jdbcType=VARCHAR},
+      </if>
+      <if test="sfje != null">
+        #{sfje,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.softeem.hrms.entity.SalaryBonus">
+    update salary_bonus
+    <set>
+      <if test="xm != null">
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="bm != null">
+        bm = #{bm,jdbcType=VARCHAR},
+      </if>
+      <if test="nzj != null">
+        nzj = #{nzj,jdbcType=VARCHAR},
+      </if>
+      <if test="whgljl != null">
+        whgljl = #{whgljl,jdbcType=VARCHAR},
+      </if>
+      <if test="yxjxcgj != null">
+        yxjxcgj = #{yxjxcgj,jdbcType=VARCHAR},
+      </if>
+      <if test="kycg != null">
+        kycg = #{kycg,jdbcType=VARCHAR},
+      </if>
+      <if test="sjjsjl != null">
+        sjjsjl = #{sjjsjl,jdbcType=VARCHAR},
+      </if>
+      <if test="bykyjl != null">
+        bykyjl = #{bykyjl,jdbcType=VARCHAR},
+      </if>
+      <if test="dyxyjl != null">
+        dyxyjl = #{dyxyjl,jdbcType=VARCHAR},
+      </if>
+      <if test="jzgbsjbt != null">
+        jzgbsjbt = #{jzgbsjbt,jdbcType=VARCHAR},
+      </if>
+      <if test="xwssjl != null">
+        xwssjl = #{xwssjl,jdbcType=VARCHAR},
+      </if>
+      <if test="yxbysjl != null">
+        yxbysjl = #{yxbysjl,jdbcType=VARCHAR},
+      </if>
+      <if test="cdjl != null">
+        cdjl = #{cdjl,jdbcType=VARCHAR},
+      </if>
+      <if test="yzzlkc != null">
+        yzzlkc = #{yzzlkc,jdbcType=VARCHAR},
+      </if>
+      <if test="xgccfjl != null">
+        xgccfjl = #{xgccfjl,jdbcType=VARCHAR},
+      </if>
+      <if test="kc != null">
+        kc = #{kc,jdbcType=VARCHAR},
+      </if>
+      <if test="xj != null">
+        xj = #{xj,jdbcType=VARCHAR},
+      </if>
+      <if test="dksbgjj != null">
+        dksbgjj = #{dksbgjj,jdbcType=VARCHAR},
+      </if>
+      <if test="bak != null">
+        bak = #{bak,jdbcType=VARCHAR},
+      </if>
+      <if test="yfje != null">
+        yfje = #{yfje,jdbcType=VARCHAR},
+      </if>
+      <if test="js != null">
+        js = #{js,jdbcType=VARCHAR},
+      </if>
+      <if test="ykgrsds != null">
+        ykgrsds = #{ykgrsds,jdbcType=VARCHAR},
+      </if>
+      <if test="sfje != null">
+        sfje = #{sfje,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.softeem.hrms.entity.SalaryBonus">
+    update salary_bonus
+    set xm = #{xm,jdbcType=VARCHAR},
+      bm = #{bm,jdbcType=VARCHAR},
+      nzj = #{nzj,jdbcType=VARCHAR},
+      whgljl = #{whgljl,jdbcType=VARCHAR},
+      yxjxcgj = #{yxjxcgj,jdbcType=VARCHAR},
+      kycg = #{kycg,jdbcType=VARCHAR},
+      sjjsjl = #{sjjsjl,jdbcType=VARCHAR},
+      bykyjl = #{bykyjl,jdbcType=VARCHAR},
+      dyxyjl = #{dyxyjl,jdbcType=VARCHAR},
+      jzgbsjbt = #{jzgbsjbt,jdbcType=VARCHAR},
+      xwssjl = #{xwssjl,jdbcType=VARCHAR},
+      yxbysjl = #{yxbysjl,jdbcType=VARCHAR},
+      cdjl = #{cdjl,jdbcType=VARCHAR},
+      yzzlkc = #{yzzlkc,jdbcType=VARCHAR},
+      xgccfjl = #{xgccfjl,jdbcType=VARCHAR},
+      kc = #{kc,jdbcType=VARCHAR},
+      xj = #{xj,jdbcType=VARCHAR},
+      dksbgjj = #{dksbgjj,jdbcType=VARCHAR},
+      bak = #{bak,jdbcType=VARCHAR},
+      yfje = #{yfje,jdbcType=VARCHAR},
+      js = #{js,jdbcType=VARCHAR},
+      ykgrsds = #{ykgrsds,jdbcType=VARCHAR},
+      sfje = #{sfje,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+   <select id="selectAll" resultMap="BaseResultMap">
+  		select
+  		<include refid="Base_Column_List"/>
+  		from salary_bonus
+  </select>
+</mapper>
